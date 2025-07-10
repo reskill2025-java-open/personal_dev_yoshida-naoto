@@ -1,6 +1,7 @@
 -- 各種テーブル削除
 --DROP TABLE IF EXISTS normal;
 --DROP TABLE IF EXISTS premiere;
+DROP TABLE IF EXISTS login;
 DROP TABLE IF EXISTS users;
 DROP TABLE IF EXISTS drink;
 DROP TABLE IF EXISTS drinkcategory;
@@ -27,6 +28,13 @@ DROP TABLE IF EXISTS checks;
 --   	address TEXT,
 --   	status TEXT
 --);
+
+--  ログインテーブル
+CREATE TABLE login
+(
+	user_name TEXT,
+   	password TEXT
+   	);
 
 --  会員テーブル
 CREATE TABLE users

@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.example.demo.entity.Login;
 import com.example.demo.model.Cart;
 import com.example.demo.repository.LoginRepository;
+import com.example.demo.repository.OrderRepository;
 
 @Controller
 public class OrderController {
@@ -19,6 +20,9 @@ public class OrderController {
 
 	@Autowired
 	LoginRepository loginRepository;
+
+	@Autowired
+	OrderRepository orderRepository;
 
 	@GetMapping("/order")
 	public String order() {
@@ -34,6 +38,7 @@ public class OrderController {
 
 		Login login = new Login(userName, email, address);
 		model.addAttribute("login", login);
+		loginRepository.save(login);
 
 		return "order";
 	}

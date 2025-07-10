@@ -14,7 +14,7 @@
 		<td th:text="${drink.quantity}"></td>
 		<td th:text="${drink.price*drink.quantity}"></td>
 		<td>
-			<form action="/cart/delete" method="post">
+			<form action="/cartpremiere/delete" method="post">
 				<input type="hidden" name="drinkId" th:value="${drink.drinkId}">
 				<button>削除</button>
 			</form>

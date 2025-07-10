@@ -29,7 +29,7 @@ public class UsersController {
 		session.invalidate();
 		// エラーパラメータのチェック
 		if (error.equals("notLoggedIn")) {
-			model.addAttribute("message", "ログインしてください");
+			model.addAttribute("message", "ログイン情報を入力してください");
 		}
 
 		return "login";
@@ -37,16 +37,34 @@ public class UsersController {
 
 	@PostMapping("/login")
 	public String login(
-			@RequestParam("name") String name,
+			@RequestParam(name = "name", defaultValue = "") String name,
+			@RequestParam(name = "password", defaultValue = "") String password,
 			Model model) {
+		// 名前とパスワードが空の場合にエラーとする
+		if (password.equals("") && name.equals("")) {
+			model.addAttribute("message", "名前を入力してください");
+			model.addAttribute("passmessage", "パスワードを入力してください");
+			return "login";
+		}
+
 		// 名前が空の場合にエラーとする
-		if (name == null || name.length() == 0) {
+		if (name.equals("")) {
 			model.addAttribute("message", "名前を入力してください");
 			return "login";
 		}
 
+		//名前とパスワードがデータベースと一致しなかった場合エラーとする
+
+		// パスワードが空の場合にエラーとする
+		if (password.equals("")) {
+			model.addAttribute("passmessage", "パスワードを入力してください");
+			//名前とパスワードがデータベースと一致しなかった場合エラーとするS
+
+			return "login";
+		}
 		// セッション管理されたアカウント情報に名前をセット
 		account.setName(name);
+		account.setName(password);
 
 		// 「/drink」へのリダイレクト
 		return "redirect:/drink";
@@ -55,5 +73,51 @@ public class UsersController {
 	@GetMapping("/account")
 	public String account() {
 		return "account";
+	}
+
+	@PostMapping("/account")
+	public String newAccount(
+			@RequestParam(name = "name", defaultValue = "") String name,
+			@RequestParam(name = "password", defaultValue = "") String password,
+			@RequestParam(name = "rank", defaultValue = "false") Boolean rank,
+			Model model) {
+		// 名前とパスワードが空の場合にエラーとする
+		//		if (password.equals("") && name.equals("")) {
+		//			model.addAttribute("message", "名前を入力してください");
+		//			model.addAttribute("passmessage", "パスワードを入力してください");
+		//			return "account";
+		//		}
+		boolean error = false;
+		// 名前が空の場合にエラーとする
+		if (name.equals("")) {
+			model.addAttribute("message", "名前を入力してください");
+			error = true;
+		}
+
+		//名前とパスワードがデータベースと一致しなかった場合エラーとする
+
+		// パスワードが空の場合にエラーとする
+		if (password.equals("")) {
+			model.addAttribute("passmessage", "パスワードを入力してください");
+			//名前とパスワードがデータベースと一致しなかった場合エラーとするS
+
+			error = true;
+		}
+
+		if (rank == false) {
+			model.addAttribute("rankmessage", "チェックを入れて下さい");
+			error = true;
+		}
+		if (error == true) {
+			return "account";
+		} else {
+
+			// セッション管理されたアカウント情報に名前をセット
+			account.setName(name);
+			account.setName(password);
+
+			// 「/drink」へのリダイレクト
+			return "redirect:/drink";
+		}
 	}
 }

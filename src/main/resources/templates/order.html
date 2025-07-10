@@ -1,26 +1,36 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
+
 <head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
 </head>
+
 <body>
 	<h1>注文画面</h1>
 	<div th:replace="CartDrink"></div>
 	<form action="/thankyou">
-		<button>注文確定</button>
-		
+
+
 		<table border="1">
 			<tr>
 				<th>名前</th>
-				<th>メールアドレス</th>
-				<th>住所</th>
+				<td><input type="text" name="userName" th:value="${userName}"></td>
 			</tr>
-			<tr th:each="login:${@login.loginList}">
-				<td th:text="${login.userName}"></td>
-				<td th:text="${login.email}"></td>
-				<td th:text="${login.address}"></td>
+			<th>メールアドレス</th>
+			<td><input type="text" name="email" th:value="${email}"></td>
+			</tr>
+			<th>住所</th>
+			<td><input type="text" name="address" th:value="${address}"></td>
+			</tr>
+			<!--			</tr>-->
+			<!--			<tr th:each="login:${@login.loginList}">-->
+			<!--				<td th:text="${login.userName}"></td>-->
+			<!--				<td th:text="${login.email}"></td>-->
+			<!--				<td th:text="${login.address}"></td>-->
 			</tr>
 		</table>
+		<button>注文確定</button>
 </body>
+
 </html>
