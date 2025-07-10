@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>注文画面</h1>
+	<div th:replace="CartDrink"></div>
+	<form action="/thankyou">
+		<button>注文確定</button>
+		
+		<table border="1">
+			<tr>
+				<th>名前</th>
+				<th>メールアドレス</th>
+				<th>住所</th>
+			</tr>
+			<tr th:each="login:${@login.loginList}">
+				<td th:text="${login.userName}"></td>
+				<td th:text="${login.email}"></td>
+				<td th:text="${login.address}"></td>
+			</tr>
+		</table>
+</body>
+</html>

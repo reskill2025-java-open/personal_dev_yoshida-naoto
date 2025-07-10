@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<title>ログイン</title>
+	<link rel="stylesheet" type="text/css" href="/css/style.css">
+</head>
+
+<body>
+	<header>
+		<h1>サンプルショッピング</h1>
+	</header>
+	<main>
+		お客様情報登録
+		<table border="1">
+			<tr>
+				<th>名前</th>
+				<td><input type="text" name="name" placeholder="お名前"></td>
+			</tr>
+			<tr>
+				<th>パスワード</th>
+				<td><input type="text" name="password" placeholder="パスワード"></td>
+			</tr>
+			<tr>
+				<th>e-mail</th>
+				<td><input type="text" name="mail" placeholder="e-mail"></td>
+			</tr>
+			<tr>
+				<th>住所</th>
+				<td><input type="text" name="adress" placeholder="住所"></td>
+			</tr>
+		</table>
+		<input type="checkbox" name="rank">　￥500 プレミア会員になる<br>
+		<form action="/drink">
+			<button>登録</button>
+		</form>
+
+	</main>
+</body>
+
+</html>

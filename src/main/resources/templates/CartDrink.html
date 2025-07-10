@@ -1,0 +1,28 @@
+<table border="1">
+	<tr>
+		<th>NO</th>
+		<th>商品名</th>
+		<th>値段</th>
+		<th>個数</th>
+		<th>小計</th>
+		<th></th>
+	</tr>
+	<tr th:each="drink:${@cart.drinkList}">
+		<td th:text="${drink.drinkId}"></td>
+		<td th:text="${drink.drinkName}"></td>
+		<td th:text="${drink.price}"></td>
+		<td th:text="${drink.quantity}"></td>
+		<td th:text="${drink.price*drink.quantity}"></td>
+		<td>
+			<form action="/cart/delete" method="post">
+				<input type="hidden" name="drinkId" th:value="${drink.drinkId}">
+				<button>削除</button>
+			</form>
+		</td>
+	</tr>
+	<tr>
+		<td align="right" colspan="5" th:text="'総計：' + ${@cart.totalPrice}">
+		<td></td>
+		</td>
+	</tr>
+</table>

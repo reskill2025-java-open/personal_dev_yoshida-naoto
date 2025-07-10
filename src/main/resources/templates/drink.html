@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+</head>
+
+<body>
+	<th:block th:if="${a}!=1">
+		<h1>商品一覧</h1>
+	</th:block>
+	<th:block th:unless="${a}!=1">
+		<h1>商品詳細</h1>
+	</th:block>
+
+
+	<th:block th:if="${a}!=1">
+		<form action="/drink" method="get">
+			<form action="/drink" method="post">
+
+				<!--		カテゴリー別検索のフォーム-->
+				<select name="categoryId">
+					<option th:each="category:${categoryList}" th:value="${category.categoryId}"
+						th:text="${category.category}" style="margin-right: 10px;">
+					</option>
+				</select>
+				<!--		商品名検索のフォーム-->
+
+				| <input type="text" name="drinkName" th:value="${drinkName}" placeholder="商品名"> |
+
+				<!--		～以下のフォーム-->
+				<input type="text" name="price" th:value="${price}" placeholder="価格">円以下
+
+				<button>検索</button>
+
+				<!--		カートの中を見るリンク-->
+				<a href="/cart" style="padding-left:10px;">カートを見る</a>
+			</form>
+	</th:block>
+	<table border="1">
+		<tr>
+			<th>NO</th>
+			<th>商品名</th>
+			<th>値段</th>
+			<th>種類</th>
+			<th:block th:unless="${a}!=1">
+				<th>内容量</th>
+				<th>製造元</th>
+			</th:block>
+			<th></th>
+		</tr>
+		<tr th:each="drink:${drinkList}">
+			<td th:text="${drink.drinkId}"></td>
+			<td><a th:href="@{/drink/{detail}(detail=${drink.drinkId})}" th:text="${drink.drinkName}"></a></td>
+			<td th:text="${drink.price}"></td>
+			<td th:text="${drink.category}"></td>
+			<th:block th:unless="${a}!=1">
+				<td th:text="${drink.amount}"></td>
+				<td th:text="${drink.factory}"></td>
+			</th:block>
+
+			<td>
+
+				<form action="/cart/add" method="post">
+					<input type="hidden" name="drinkId" th:value="${drink.drinkId}">
+					<button>カートに追加</button>
+				</form>
+			</td>
+		</tr>
+	</table>
+</body>
+
+</html>

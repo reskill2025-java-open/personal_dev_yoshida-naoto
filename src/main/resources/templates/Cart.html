@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>カート</h1>
+	<div th:replace="CartDrink"></div>
+		<form action="/order">
+			<button>注文する</button>
+			<a href="/drink">戻る</a>
+</body>
+</html>
