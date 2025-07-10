@@ -20,9 +20,22 @@
 			</form>
 		</td>
 	</tr>
-	<tr>
-		<td align="right" colspan="5" th:text="'総計：' + ${@cart.totalPrice}">
-		<td></td>
-		</td>
-	</tr>
+
+	<th:block th:if="${@account.name} != ''">
+		<tr>
+			<td align="right" colspan="5" th:text="'総計：' + ${@cart.totalPrice}"> </td>
+		<td></td></tr>
+		<tr>
+			<td align="right" colspan="5" th:text="プレミア会員価格"></td>
+		<td></td></tr>
+	</th:block>
+	<th:block th:if="${@account.name} == ''">
+		<tr>
+			<td align="right" colspan="5" th:text="'総計：' + ${@cart.totalPrice}"> </td>
+		<td></td></tr>
+	</th:block>
+
+	
+
+
 </table>

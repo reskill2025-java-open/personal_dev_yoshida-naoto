@@ -15,13 +15,13 @@
 		<table border="1">
 			<tr>
 				<th>名前</th>
-				<td><input type="text" name="userName" th:value="${userName}"></td>
+				<td><input type="text" name="userName" th:value="${@account.name}"></td>
 			</tr>
 			<th>メールアドレス</th>
-			<td><input type="text" name="email" th:value="${email}"></td>
+			<td><input type="text" name="email"></td>
 			</tr>
 			<th>住所</th>
-			<td><input type="text" name="address" th:value="${address}"></td>
+			<td><input type="text" name="address"></td>
 			</tr>
 			<!--			</tr>-->
 			<!--			<tr th:each="login:${@login.loginList}">-->
