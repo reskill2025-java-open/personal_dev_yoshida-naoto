@@ -13,6 +13,7 @@
 	</header>
 	<main>
 		お客様情報登録
+		<form action="/account" method="post">
 		<table border="1">
 			<tr>
 				<th>名前</th>
@@ -22,18 +23,18 @@
 				<th>パスワード</th>
 				<td><input type="text" name="password" placeholder="パスワード"></td>
 			</tr>
-			<tr>
-				<th>e-mail</th>
-				<td><input type="text" name="mail" placeholder="e-mail"></td>
-			</tr>
-			<tr>
-				<th>住所</th>
-				<td><input type="text" name="adress" placeholder="住所"></td>
-			</tr>
 		</table>
-		<input type="checkbox" name="rank">　￥500 プレミア会員になる<br>
-		<form action="/drink">
+		<p th:text="${message}" style="color: red"></p> 
+		<p th:text="${passmessage}" style="color: red"></p>
+		<p th:text="${rankmessage}" style="color: red"></p>
+		<input type="checkbox" name="rank" checked>　￥500 プレミア会員になる<br>
+		
 			<button>登録</button>
+			
+			<br>
+			<br>
+			<br>
+			<br><a href="/login">ログイン画面に戻る</a>
 		</form>
 
 	</main>
