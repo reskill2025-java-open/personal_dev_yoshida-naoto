@@ -67,7 +67,7 @@ public class UsersController {
 		account.setName(password);
 
 		// 「/drink」へのリダイレクト
-		return "redirect:/drinkpremiere";
+		return "redirect:/drink";
 	}
 
 	@GetMapping("/account")
@@ -117,7 +117,7 @@ public class UsersController {
 			account.setName(password);
 
 			// 「/drink」へのリダイレクト
-			return "redirect:/drinkpremiere";
+			return "redirect:/drink";
 		}
 	}
 }
