@@ -4,13 +4,13 @@
 ---- プレミア会員テーブルデータ
 --INSERT INTO premiere(user_name, password, email, address, status) VALUES( '柳田悠岐', 'himitu', 'gita1009@aaa', '福岡県福岡市中央地行浜2-2-2', 'プレミア会員');
 
--- ログインテーブルデータ
-INSERT INTO login(user_name, password) VALUES( '周東佑京', 'himitu');
-INSERT INTO login(user_name, password) VALUES( '柳田悠岐', 'himitu');
-
 -- 会員テーブルデータ
-INSERT INTO users(user_name, password, email, address, status, status_id) VALUES( '周東佑京', 'himitu', 'syutou210@aaa', '福岡県福岡市中央地行浜2-2-2', '一般会員', 1);
-INSERT INTO users(user_name, password, email, address, status, status_id) VALUES( '柳田悠岐', 'himitu', 'gita1009@aaa', '福岡県福岡市中央地行浜2-2-2', 'プレミア会員', 2);
+INSERT INTO mem(user_name, password) VALUES( '周東佑京', 'himitu');
+INSERT INTO mem(user_name, password) VALUES( '柳田悠岐', 'himitu');
+
+-- 使わない会員テーブルデータ
+--INSERT INTO users(user_name, password, email, address, status, status_id) VALUES( '周東佑京', 'himitu', 'syutou210@aaa', '福岡県福岡市中央地行浜2-2-2', '一般会員', 1);
+--INSERT INTO users(user_name, password, email, address, status, status_id) VALUES( '柳田悠岐', 'himitu', 'gita1009@aaa', '福岡県福岡市中央地行浜2-2-2', 'プレミア会員', 2);
 
 -- 商品一覧テーブルデータ
 INSERT INTO drink(drink_name, price, category_id, amount, factory) VALUES('厳選静岡茶', 250, 2, 650, 'イ・トウエン');

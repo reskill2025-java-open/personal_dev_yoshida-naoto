@@ -90,11 +90,13 @@ public class OrderController {
 		//		model.addAttribute("login", login);
 		//		loginRepository.save(login);
 
+		cart.clear();
 		return "thankyou";
 	}
 
 	@GetMapping("/thankyou")
 	public String thankyou() {
+
 		return "thankyou";
 	}
 }

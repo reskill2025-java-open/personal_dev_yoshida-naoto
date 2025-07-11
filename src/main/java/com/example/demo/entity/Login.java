@@ -8,7 +8,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "users")
+@Table(name = "mem")
 public class Login {
 
 	@Id
@@ -21,13 +21,13 @@ public class Login {
 
 	private String password;//パスワード
 
-	private String email; // メールアドレス
-
-	private String address; // 住所
-
-	private String status; // 会員情報
-
-	private String status_id; // 会員情報判別
+	//	private String email; // メールアドレス
+	//
+	//	private String address; // 住所
+	//
+	//	private String status; // 会員情報
+	//
+	//	private String status_id; // 会員情報判別
 
 	public Integer getUserId() {
 		return userId;
@@ -53,37 +53,37 @@ public class Login {
 		this.password = password;
 	}
 
-	public String getEmail() {
-		return email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
-	}
-
-	public String getAddress() {
-		return address;
-	}
-
-	public void setAddress(String address) {
-		this.address = address;
-	}
-
-	public String getStatus() {
-		return status;
-	}
-
-	public void setStatus(String status) {
-		this.status = status;
-	}
-
-	public String getStatus_id() {
-		return status_id;
-	}
-
-	public void setStatus_id(String status_id) {
-		this.status_id = status_id;
-	}
+	//	public String getEmail() {
+	//		return email;
+	//	}
+	//
+	//	public void setEmail(String email) {
+	//		this.email = email;
+	//	}
+	//
+	//	public String getAddress() {
+	//		return address;
+	//	}
+	//
+	//	public void setAddress(String address) {
+	//		this.address = address;
+	//	}
+	//
+	//	public String getStatus() {
+	//		return status;
+	//	}
+	//
+	//	public void setStatus(String status) {
+	//		this.status = status;
+	//	}
+	//
+	//	public String getStatus_id() {
+	//		return status_id;
+	//	}
+	//
+	//	public void setStatus_id(String status_id) {
+	//		this.status_id = status_id;
+	//	}
 
 	//	// コンストラクタ
 	//	public Login() {
@@ -101,9 +101,9 @@ public class Login {
 	public Login() {
 	}
 
-	public Login(String userName, String email, String address) {
+	public Login(String userName, String password) {
 		this.userName = userName;
-		this.email = email;
-		this.address = address;
+		this.password = password;
+
 	}
 }
