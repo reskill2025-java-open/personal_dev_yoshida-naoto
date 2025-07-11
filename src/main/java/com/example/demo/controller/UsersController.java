@@ -53,14 +53,15 @@ public class UsersController {
 			return "login";
 		}
 
-		//名前とパスワードがデータベースと一致しなかった場合エラーとする
-
 		// パスワードが空の場合にエラーとする
 		if (password.equals("")) {
 			model.addAttribute("passmessage", "パスワードを入力してください");
 			//名前とパスワードがデータベースと一致しなかった場合エラーとするS
 
 			return "login";
+
+			//名前とパスワードがデータベースと一致しなかった場合エラーとする
+
 		}
 		// セッション管理されたアカウント情報に名前をセット
 		account.setName(name);

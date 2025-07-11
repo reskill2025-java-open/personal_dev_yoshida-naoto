@@ -1,10 +1,21 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
+
 <head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
 </head>
+
 <body>
-	<h1>ご注文ありがとうございます。</h1>
+	<th:block th:if="${@account.name}">
+		<h1>ご注文ありがとうございます。</h1>
+		[[${@account.name}]]様のお荷物は明日中に届きます。
+	</th:block>
+
+	<th:block th:unless="${@account.name}">
+		<h1>ご注文ありがとうございます。</h1>
+		お荷物は3日後届きます。
+	</th:block>
 </body>
+
 </html>

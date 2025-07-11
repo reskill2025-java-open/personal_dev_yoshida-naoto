@@ -7,10 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.example.demo.entity.Login;
 import com.example.demo.model.Cart;
-import com.example.demo.repository.LoginRepository;
-import com.example.demo.repository.OrderRepository;
 
 @Controller
 public class OrderController {
@@ -18,11 +15,11 @@ public class OrderController {
 	@Autowired
 	Cart cart;
 
-	@Autowired
-	LoginRepository loginRepository;
-
-	@Autowired
-	OrderRepository orderRepository;
+	//	@Autowired
+	//	LoginRepository loginRepository;
+	//
+	//	@Autowired
+	//	OrderRepository orderRepository;
 
 	@GetMapping("/order")
 	public String order() {
@@ -36,11 +33,64 @@ public class OrderController {
 			@RequestParam(name = "address", defaultValue = "") String address,
 			Model model) {
 
-		Login login = new Login(userName, email, address);
-		model.addAttribute("login", login);
-		loginRepository.save(login);
+		// 全てが空の場合にエラーとする
+		if (userName.equals("") && email.equals("") && address.equals("")) {
+			model.addAttribute("message", "名前を入力してください");
+			model.addAttribute("mailmessage", "メールアドレスを入力してください");
+			model.addAttribute("addmessage", "住所を入力してください");
 
-		return "order";
+			return "order";
+		}
+
+		// 名前とメールアドレスが空の場合にエラーとする
+		if (userName.equals("") && email.equals("")) {
+			model.addAttribute("message", "名前を入力してください");
+			model.addAttribute("mailmessage", "メールアドレスを入力してください");
+
+			return "order";
+		}
+
+		// 名前と住所が空の場合にエラーとする
+		if (userName.equals("") && address.equals("")) {
+			model.addAttribute("message", "名前を入力してください");
+			model.addAttribute("addmessage", "住所を入力してください");
+
+			return "order";
+		}
+
+		// メールアドレスと住所が空の場合にエラーとする
+		if (email.equals("") && address.equals("")) {
+			model.addAttribute("mailmessage", "メールアドレスを入力してください");
+			model.addAttribute("addmessage", "住所を入力してください");
+
+			return "order";
+		}
+		// 名前が空の場合にエラーとする
+		if (userName.equals("")) {
+			model.addAttribute("message", "名前を入力してください");
+
+			return "order";
+		}
+
+		// メールアドレスが空の場合にエラーとする
+		if (email.equals("")) {
+			model.addAttribute("mailmessage", "メールアドレスを入力してください");
+
+			return "order";
+		}
+
+		// 住所が空の場合にエラーとする
+		if (address.equals("")) {
+			model.addAttribute("addmessage", "住所を入力してください");
+
+			return "order";
+		}
+
+		//		Login login = new Login(userName, email, address);
+		//		model.addAttribute("login", login);
+		//		loginRepository.save(login);
+
+		return "thankyou";
 	}
 
 	@GetMapping("/thankyou")
