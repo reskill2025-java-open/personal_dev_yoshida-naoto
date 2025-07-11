@@ -1,3 +1,25 @@
+<style>
+			.nijiu{
+				position: relative;
+			}
+			.nijiu::before,
+			.nijiu::after {
+				position: absolute;
+				content: "";
+				display: block;
+				transform: rotate(0);
+				background-color: red;
+				width: 100%;
+				height: 1px;
+				left: 0;
+			}
+			.nijiu::before {
+				top: 55%;
+			}
+			.nijiu::after {
+				top: 42%;
+			}
+		</style>
 <table border="1">
 	<tr>
 		<th>NO</th>
@@ -21,15 +43,15 @@
 		</td>
 	</tr>
 
-	<th:block th:if="${@account.name} != ''">
+	<th:block th:if="${@account.name}">
 		<tr>
-			<td align="right" colspan="5" th:text="'総計：' + ${@cart.totalPrice}"> </td>
+			<td align="right" colspan="5"  ><span class="nijiu">総計： [[${@cart.totalPrice}]]</span></td> 
 		<td></td></tr>
 		<tr>
-			<td align="right" colspan="5" th:text="プレミア会員価格"></td>
+			<td align="right" colspan="5" th:text="'プレミア会員価格 : ' + ${@cart.premierePrice}"></td>
 		<td></td></tr>
 	</th:block>
-	<th:block th:if="${@account.name} == ''">
+	<th:block th:unless="${@account.name}">
 		<tr>
 			<td align="right" colspan="5" th:text="'総計：' + ${@cart.totalPrice}"> </td>
 		<td></td></tr>
