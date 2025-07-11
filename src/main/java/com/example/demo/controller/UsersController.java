@@ -9,7 +9,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.example.demo.entity.Login;
 import com.example.demo.model.Account;
+import com.example.demo.repository.LoginRepository;
 
 @Controller
 public class UsersController {
@@ -19,6 +21,9 @@ public class UsersController {
 
 	@Autowired
 	Account account;
+
+	@Autowired
+	LoginRepository loginRepository;
 
 	// ログイン画面を表示
 	@GetMapping({ "/", "/login", "/logout" })
@@ -56,7 +61,7 @@ public class UsersController {
 		// パスワードが空の場合にエラーとする
 		if (password.equals("")) {
 			model.addAttribute("passmessage", "パスワードを入力してください");
-			//名前とパスワードがデータベースと一致しなかった場合エラーとするS
+			//名前とパスワードがデータベースと一致しなかった場合エラーとする
 
 			return "login";
 
@@ -115,9 +120,16 @@ public class UsersController {
 			// セッション管理されたアカウント情報に名前をセット
 			account.setName(name);
 			account.setName(password);
+			//		ログインオブジェクトの生成
+			Login login = new Login();
+			//	memテーブルへの反映
+			login.setUserName(name);
+			login.setPassword(password);
+			loginRepository.save(login);
 
 			// 「/drink」へのリダイレクト
 			return "redirect:/drink";
 		}
+
 	}
 }
