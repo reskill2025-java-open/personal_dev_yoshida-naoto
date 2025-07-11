@@ -64,7 +64,6 @@ public class UsersController {
 		}
 		// セッション管理されたアカウント情報に名前をセット
 		account.setName(name);
-		account.setName(password);
 
 		// 「/drink」へのリダイレクト
 		return "redirect:/drink";

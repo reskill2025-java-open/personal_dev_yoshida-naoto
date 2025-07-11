@@ -27,6 +27,15 @@ public class Cart {
 		return total;
 	}
 
+	public double getPremierePrice() {
+
+		double premieretotal = 0;
+		for (Drink drink : drinkList) {
+			premieretotal = getTotalPrice() * 0.9;
+		}
+		return premieretotal;
+	}
+
 	public void add(Drink newDrink) {
 
 		Drink existsDrink = null;
