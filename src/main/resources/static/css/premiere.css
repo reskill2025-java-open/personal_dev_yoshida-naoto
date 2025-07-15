@@ -1,0 +1,94 @@
+@charset "UTF-8";
+
+/* 全体 */
+body {
+	/* 背景色  */
+	background: linear-gradient(90deg, #b39855 0%, #fff9e6 50%, #b39855 100%);
+	/* 中央寄せ */
+	text-align: center;
+	/* 最小幅 */
+	min-width: 900px;
+	width: 100%;
+}
+
+/* ボタンの位置調整 */
+div {
+	margin: auto;
+	width: 40%;
+	justify-content: center;
+	justify-content: space-around;
+}
+
+/* ヘッダー、ナビゲーションメニュー、フッター */
+header,
+nav,
+footer {
+	background: linear-gradient(135deg, #1d262e 0%, #183d5c 100%);
+	/* 背景色 */
+	color: #ffffff;
+	/* 文字色 */
+	padding-top: 5px;
+	/* 内側余白(上) */
+	padding-bottom: 5px;
+	/* 内側余白(下) */
+}
+
+/* ヘッダー、ナビゲーション内リンク */
+header a,
+nav a {
+	color: #ffffff;
+}
+
+/* ヘッダー内見出し */
+header h1 {
+	font-size: 20pt;
+	margin: 10px auto;
+}
+
+/* 仕切り線 */
+hr {
+	border-top: 2px dashed #7d8bae;
+}
+
+/* メイン */
+main {
+	background-color: #FFFFFF;
+	min-height: 50px;
+	padding: 20px;
+}
+
+/* 表線 */
+table,
+th,
+td {
+	border-collapse: collapse;
+	border: 1px solid black;
+}
+
+/* 表 */
+table {
+	margin: 5px auto;
+	min-width: 650px;
+}
+
+/* 表見出しセル */
+table th {
+	background: #1f1e33;
+	color: #ffffff;
+}
+
+/* 送信ボタン */
+button {
+	margin: 2px;
+	padding: 5px 20px;
+	background-color: #e5857b;
+	color: #ffffff;
+	border: none;
+	width: 150px;
+	cursor: pointer;
+}
+
+/* 送信ボタン(マウスオーバー時) */
+button:hover {
+	background-color: #f1b2b2;
+}

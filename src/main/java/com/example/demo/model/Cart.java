@@ -27,13 +27,25 @@ public class Cart {
 		return total;
 	}
 
-	public double getPremierePrice() {
+	public int getPremierePrice() {
 
-		double premieretotal = 0;
+		int premieretotal = 0;
 		for (Drink drink : drinkList) {
-			premieretotal = getTotalPrice() * 0.9;
+			premieretotal = (int) Math.floor(getTotalPrice() * 0.9);
 		}
 		return premieretotal;
+	}
+
+	public int postage() {
+
+		int postage = 290;
+		return postage;
+	}
+
+	public int getGuestPrice() {
+
+		int getguestprice = getTotalPrice() + postage();
+		return getguestprice;
 	}
 
 	public void add(Drink newDrink) {

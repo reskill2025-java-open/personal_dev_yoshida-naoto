@@ -4,14 +4,20 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Insert title here</title>
+	<link rel="stylesheet" th:if="${@account.name}" type="text/css" href="/css/premiere.css">
+
+	<link rel="stylesheet" th:unless="${@account.name}" type="text/css" href="/css/guest.css">
+
 </head>
 
 <body>
-	<h1>注文画面</h1>
+	<header th:replace="header"></header>
+	<h1>注文商品</h1>
 	<div th:replace="CartDrink"></div>
+
 	<form action="/order" method="post">
 
-
+		<h2>お客様情報</h2>
 		<table border="1">
 			<tr>
 				<th>名前</th>
@@ -30,10 +36,17 @@
 			<!--				<td th:text="${login.address}"></td>-->
 			</tr>
 		</table>
-		<p th:text="${message}" style="color: red"></p> 
+		<p th:text="${message}" style="color: red"></p>
 		<p th:text="${mailmessage}" style="color: red"></p>
 		<p th:text="${addmessage}" style="color: red"></p>
-		<button>注文確定</button>
+		<div style="display: flex;">
+			<button formaction="/cart">戻る</button>
+			<button>注文確定</button>
+		</div>
+	</form>
+
+	<!--	<footer th:replace="footer"></footer>-->
+
 </body>
 
 </html>

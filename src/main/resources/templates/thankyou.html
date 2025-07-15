@@ -4,20 +4,33 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Insert title here</title>
+	<link rel="stylesheet" th:if="${@account.name}" type="text/css" href="/css/premiere.css">
+
+	<link rel="stylesheet" th:unless="${@account.name}" type="text/css" href="/css/guest.css">
+
 </head>
 
 <body>
 	<th:block th:if="${@account.name}">
 		<h1>ご注文ありがとうございます。</h1>
-		[[${@account.name}]]様のお荷物は明日中に届きます。
+		<h2>[[${@account.name}]]様のお荷物は
+			<span style="border-bottom:2px solid black;">明日中</span>
+			に届きます。
+			<img alt="" th:src="${PREMIERE}">
+		</h2>
+		
+		
 	</th:block>
 
 	<th:block th:unless="${@account.name}">
 		<h1>ご注文ありがとうございます。</h1>
-		お荷物は3日後届きます。
+		<h2>お荷物は
+			<span style="border-bottom:2px solid black;">三日後</span>
+			に届きます。</h2>
+			<img alt="" th:src="${GUEST}">
 	</th:block>
-	
-	<br><a href="/drink">買い物を続ける</a>
+
+	<br><a href="/drink">買い物を続ける</a><br>
 	<a href="/login">ログイン画面に戻る</a>
 </body>
 

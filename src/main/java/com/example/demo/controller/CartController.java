@@ -28,6 +28,11 @@ public class CartController {
 		return "cart";
 	}
 
+	@PostMapping("/cart")
+	public String backCart() {
+		return "cart";
+	}
+
 	@PostMapping("/cart/add")
 	public String addCart(@RequestParam("drinkId") int drinkId) {
 

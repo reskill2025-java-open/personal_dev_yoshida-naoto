@@ -4,9 +4,15 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Insert title here</title>
+
+	<link rel="stylesheet" th:if="${@account.name}" type="text/css" href="/css/premiere.css">
+
+	<link rel="stylesheet" th:unless="${@account.name}" type="text/css" href="/css/guest.css">
+
 </head>
 
 <body>
+	<header th:replace="header"></header>
 	<th:block th:if="${a}!=1">
 		<h1>商品一覧</h1>
 	</th:block>
@@ -33,11 +39,9 @@
 				<input type="text" name="price" th:value="${price}" placeholder="価格">円以下
 
 				<button>検索</button>
-
-				<!--		カートの中を見るリンク-->
-				<a href="/cart" style="padding-left:10px;">カートを見る</a>
 			</form>
 	</th:block>
+
 	<table border="1">
 		<tr>
 			<th>NO</th>
@@ -69,6 +73,8 @@
 			</td>
 		</tr>
 	</table>
+	<!--		カートの中を見るリンク-->
+	<a href="/cart" style="padding-left:0px; font-size: 15pt;">カートを見る</a>
 </body>
 
 </html>

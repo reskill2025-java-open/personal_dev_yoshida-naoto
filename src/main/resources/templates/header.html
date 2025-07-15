@@ -1,0 +1,12 @@
+<header>
+	<th:block th:unless="${@account.name}">
+		<h1>ゲストショッピング</h1>
+		ゲストユーザーでログイン中　
+	</th:block>
+
+	<th:block th:if="${@account.name}">
+		<h1>プレミアショッピング</h1>
+		プレミア会員：[[${@account.name}]]様がログイン中　
+	</th:block>
+	<a href="/logout">ログアウト</a>
+</header>

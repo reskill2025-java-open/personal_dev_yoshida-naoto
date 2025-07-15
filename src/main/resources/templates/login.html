@@ -4,20 +4,31 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Insert title here</title>
+	<link rel="stylesheet" type="text/css" href="/css/style.css">
+	<style>
+		.form {
+			width: 240px;
+			height: 20px;
+			font-size: 14px;
+		}
+	</style>
 </head>
 
 <body>
 	<h1>ログイン画面</h1>
 
 	<form action="/login" method="post">
-		<input type="text" name="name" placeholder="名前">
-		<input type="text" name="password" placeholder="パスワード">
-		<button>ログイン</button>
-		<br> <a th:text="${message}" style="color: red"></a>
-		<br> <a th:text="${passmessage}" style="color: red"></a>
-		<br>
-		<a href="/account">新規会員登録はこちら</a><br>
-		<a href="/drink">ゲストユーザーでの買い物はこちら</a>
+
+		<input type="text" name="name" placeholder="名前" class="form"><br>
+		<p th:text="${message}" style="color: red"></p>
+
+		<input type="text" name="password" placeholder="パスワード" class="form"><br>
+		<p th:text="${passmessage}" style="color: red"></p>
+
+		<p th:text="${premiereerror}" style="color: red"></p>
+		<button>ログイン</button><br><br>
+		<br><a href="/account">新規会員登録はこちら</a><br>
+		<br><a href="/drink">ゲストユーザーでの買い物はこちら</a>
 	</form>
 </body>
 

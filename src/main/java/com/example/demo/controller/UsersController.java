@@ -65,9 +65,19 @@ public class UsersController {
 
 			return "login";
 
-			//名前とパスワードがデータベースと一致しなかった場合エラーとする
-
 		}
+
+		//名前かつパスワードがデータベースと一致しなかった場合エラーとする
+		//名前かつパスワードが一致でtrue
+
+		Login userName = loginRepository.findByUserNameAndPassword(name, password);
+
+		if (userName == null) {
+
+			model.addAttribute("premiereerror", "名前かパスワードが違っています");
+			return "login";
+		}
+
 		// セッション管理されたアカウント情報に名前をセット
 		account.setName(name);
 
@@ -119,7 +129,6 @@ public class UsersController {
 
 			// セッション管理されたアカウント情報に名前をセット
 			account.setName(name);
-			account.setName(password);
 			//		ログインオブジェクトの生成
 			Login login = new Login();
 			//	memテーブルへの反映
