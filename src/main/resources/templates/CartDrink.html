@@ -48,22 +48,28 @@
 			}
 		</style>
 		<tr>
-			<td align="right" colspan="5"><span class="nijiu">総計： [[${@cart.totalPrice}]]</span></td>
+			<td align="right" colspan="5"><span class="nijiu">送料： [[${@cart.postage}]]円</span></td>
 			<td></td>
 		</tr>
 		<tr>
-			<td align="right" colspan="5" th:text="'プレミア会員価格 : ' + ${@cart.premierePrice}"></td>
+			<td align="right" colspan="5"><span class="nijiu">総計： [[${@cart.totalPrice}]]円</span></td>
 			<td></td>
 		</tr>
+		<tr>
+			<td align="right" colspan="5" th:text="'プレミア会員価格 : ' + ${@cart.premierePrice} + '円'"></td>
+			<td></td>
+		</tr>
+		<h2 style="color: red;">プレミア会員は10%OFF!!!＆送料無料!!!</h2>
+
 	</th:block>
 	<th:block th:unless="${@account.name}">
 		<tr>
-			<td align="right" colspan="5" th:text="'総計：' + ${@cart.totalPrice}"> </td>
+			<td align="right" colspan="5" th:text="'送料：' + ${@cart.postage} + '円'" ></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td align="right" colspan="5" th:text="'総計：' + ${@cart.getGuestPrice} + '円'"> </td>
 			<td></td>
 		</tr>
 	</th:block>
-
-
-
-
 </table>

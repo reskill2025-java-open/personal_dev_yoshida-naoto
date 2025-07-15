@@ -1,14 +1,29 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
+
 <head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<link rel="stylesheet" th:if="${@account.name}" type="text/css" href="/css/premiere.css">
+
+	<link rel="stylesheet" th:unless="${@account.name}" type="text/css" href="/css/guest.css">
+
 </head>
+
 <body>
-	<h1>カート</h1>
+	<header th:replace="header"></header>
+	<h1>カートに入れた商品</h1>
 	<div th:replace="CartDrink"></div>
+	<div style="display: flex;">
+		<form action="/drink">
+			<button>戻る</button>
+		</form>
 		<form action="/order">
 			<button>注文する</button>
-			<a href="/drink">戻る</a>
+		</form>
+	</div>
+
+	</form>
 </body>
+
 </html>

@@ -6,4 +6,5 @@ import com.example.demo.entity.Login;
 
 public interface LoginRepository extends JpaRepository<Login, Integer> {
 
+	Login findByUserNameAndPassword(String userName, String password);
 }
